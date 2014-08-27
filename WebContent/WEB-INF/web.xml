@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>UM Services for Aggregate</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>GetUserInfo</servlet-name>
+    <servlet-class>GetUserInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetUserInfo</servlet-name>
+    <url-pattern>/GetUserInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>GetClassList</servlet-name>
+    <servlet-class>GetClassList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetClassList</servlet-name>
+    <url-pattern>/GetClassList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>GetExamplesActivity</servlet-name>
+    <servlet-class>GetExamplesActivity</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetExamplesActivity</servlet-name>
+    <url-pattern>/GetExamplesActivity</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>GetQuestionsActivity</servlet-name>
+    <servlet-class>GetQuestionsActivity</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetQuestionsActivity</servlet-name>
+    <url-pattern>/GetQuestionsActivity</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>GetContentConcepts</servlet-name>
+    <servlet-class>GetContentConcepts</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetContentConcepts</servlet-name>
+    <url-pattern>/GetContentConcepts</url-pattern>
+  </servlet-mapping>
+</web-app>
