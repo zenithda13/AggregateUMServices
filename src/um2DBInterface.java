@@ -34,6 +34,7 @@ public class um2DBInterface extends dbInterface {
     }
 
     // returns the activity of the user in content of type example
+    // TODO animated examples support @@@@
     public HashMap<String, String[]> getUserExamplesActivity(String usr) {
         try {
             HashMap<String, String[]> res = new HashMap<String, String[]>();
@@ -43,15 +44,12 @@ public class um2DBInterface extends dbInterface {
                     + "count(distinct(UA.activityid)) as distinctactions, "
                     + "(select count(AA2.childactivityid) from rel_activity_activity AA2 where AA2.parentactivityid = AA.parentactivityid) as totallines "
                     + "from ent_user_activity UA, rel_activity_activity AA, ent_activity A "
-                    + " where UA.appid=3 and UA.userid = (select userid from ent_user where login='"
-                    + usr
-                    + "') "
+                    + " where (UA.appid=3 OR UA.appid=35) and UA.userid = (select userid from ent_user where login='"+ usr+ "') "
                     + " and AA.parentactivityid=A.activityid and AA.childactivityid=UA.activityid "
                     + "group by AA.parentactivityid "
                     + "order by AA.parentactivityid;";
             // System.out.println(query);
             rs = stmt.executeQuery(query);
-
             // System.out.println(query);
 
             boolean noactivity = true;
@@ -178,28 +176,6 @@ public class um2DBInterface extends dbInterface {
                 data[1] = rs.getString("concepts");
                 
                 res.add(data);
-                //content_name = rs.getString("content_name");
-                
-                // System.out.println(topic);
-                //String allconcepts = rs.getString("concepts");
-                /*
-                if (allconcepts == null
-                        || allconcepts.equalsIgnoreCase("[null]")
-                        || allconcepts.length() == 0) {
-                    c_c = null;
-                } else {
-                    c_c = new ArrayList<String[]>();
-                    String[] concepts = allconcepts.split(";");
-                    for (int i = 0; i < concepts.length; i++) {
-                        String[] concept = concepts[i].split(",");
-                        c_c.add(concept); // concept_name, weight, direction
-                        // System.out.println("  "+concept[0]+" "+concept[1]);
-                    }
-                }
-                res.put(content_name, c_c);
-                */
-                
-                // System.out.println();
             }
             this.releaseStatement(stmt, rs);
             return res;
