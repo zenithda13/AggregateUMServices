@@ -50,12 +50,4 @@
     <servlet-name>GetContentConcepts</servlet-name>
     <url-pattern>/GetContentConcepts</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>ActivityReport</servlet-name>
-    <servlet-class>ActivityReport</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ActivityReport</servlet-name>
-    <url-pattern>/ActivityReport</url-pattern>
-  </servlet-mapping>  
 </web-app>
